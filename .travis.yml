@@ -1,0 +1,15 @@
+---
+distro: bionic
+
+install:
+  - bash scripts/install.sh
+
+script:
+  - bash scripts/build.sh
+
+deploy:
+  - provider: script
+    script: bash scripts/push.sh
+    skip_cleanup: true
+    on:
+      branch: master

@@ -1,0 +1,4 @@
+HOOKDIR="files/"
+OTHERMIRROR="deb http://archive.ubuntu.com/ubuntu bionic-backports main restricted universe multiverse"
+export DEPSPATH=/var/cache/pbuilder/result
+BINDMOUNTS=$DEPSPATH

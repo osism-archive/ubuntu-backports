@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+apt-get install --assume-yes apt-utils
+( cd "$DEPSPATH"; apt-ftparchive packages . > Packages )
+echo "deb [trusted=yes] file://$DEPSPATH ./" >> /etc/apt/sources.list
+apt-get update
+
+cat >> "/etc/apt/preferences" << EOF
+
+Package: python3-docker
+Pin: release o=pbuilder
+Pin-Priority: 999
+EOF
